@@ -3,7 +3,7 @@ const fs = require('fs')
 const express = require('express')
 const hbs = require('hbs')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
@@ -41,4 +41,4 @@ app.get('/about', (req, res) => {
         pageTitle: 'About Page',
     })
 })
-app.listen(port, () => console.log(`Example app listening on port ` + port))
+app.listen(port, () => console.log(`Example app listening on port ${port}`))
